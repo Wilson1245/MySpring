@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymaleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body th:object="${message}">
+        <p>
+            <strong>ID</strong>
+            <span th:text="*{id}">ID</span>
+        </p>
+        <p>
+            <strong>NAME</strong>
+            <span th:text="*{name}">Name</span>
+        </p>
+        <p>
+            <strong>CLASSROOM</strong>
+            <span th:text="*{classroom}">Classroom</span>
+        </p>
+        <p>
+            <strong>CHINESE</strong>
+            <span th:text="*{chineseScore}">ChineseScore</span>
+        </p>
+        <p>
+            <strong>MATH</strong>
+            <span th:text="*{mathScore}">MathScore</span>
+        </p>
+        <p>
+            <strong>ENGLISH</strong>
+            <span th:text="*{englishScore}">EnglishScore</span>
+        </p>
+        
+        <br>
+        <p>
+            <strong>ID</strong>
+            <span th:text="${message.id}">EnglishScore</span>
+        </p>
+        
+    </body>
+</html>
