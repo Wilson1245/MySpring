@@ -6,12 +6,12 @@
 package com.test.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import com.test.demo.service.StudentService;
 import org.springframework.web.bind.annotation.GetMapping;
 import  com.test.demo.pojo.Student;
+import com.test.demo.repository.StudentRepository;
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 /**
@@ -20,16 +20,26 @@ import org.springframework.ui.Model;
  */
 //@RestController
 @Controller
-@RequestMapping("/student")
+@RequestMapping("/")
 public class StudentController {
     
     @Autowired
     StudentService studentService;
     
-    @GetMapping("/")
+    @Autowired
+    StudentRepository studentRepository;
+    
+    @GetMapping("/student")
     public String getStudent(Model model){
         Student student = studentService.createStudent();
         model.addAttribute("message", student);
         return "index";
+    }
+    
+    @GetMapping("/find")
+    public String showStudent(Model model){
+        List<Student> students = studentRepository.findAll();
+        model.addAttribute("student", students);
+        return "showAll";
     }
 }
