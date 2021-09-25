@@ -33,11 +33,15 @@ public class StudentService {
         return student;
     }
     
-    public void insert(Student student){
+    public void save(Student student){
         studentRepository.save(student);
     }
     
     public List<Student> findClassmate(String classroom){
-        return studentRepository.findAllByClassroom(classroom);
+        return studentRepository.findByClassroom(classroom);
+    }
+    
+    public Student checkName(String name){
+        return studentRepository.findByName(name);
     }
 }
