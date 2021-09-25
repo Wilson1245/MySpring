@@ -6,33 +6,26 @@
 package com.test.demo.forms;
 
 import com.test.demo.pojo.Student;
-import javax.validation.constraints.NotBlank;
 import lombok.Data;
-import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.BeanUtils;
 
 /**
  *
- * @author wuweicheng
+ * @author Administrator
  */
 @Data
 public class StudentForm {
-    
-    @NotBlank
-    @Length(max = 10)
+
     private String name;
-    @NotBlank
-    @Length(max = 10)
     private String classroom;
     
-    
     public Student convertToStudent(){
-        Student student = new StudentFormConvert().converFor(this);
+        Student student = new studentFromConvert().converFor(this);
         return student;
     }
+
     
-    
-    private static class StudentFormConvert implements IFormConvert<StudentForm, Student>{
+    private static class studentFromConvert implements IFromConvert<StudentForm, Student> {
 
         @Override
         public Student converFor(StudentForm s) {
@@ -40,6 +33,6 @@ public class StudentForm {
             BeanUtils.copyProperties(s, student);
             return student;
         }
-        
     }
+
 }

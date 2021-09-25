@@ -13,6 +13,6 @@ import java.util.List;
  * @author Administrator
  */
 public interface StudentRepository extends JpaRepository<Student, Integer>{
-    List<Student> findByClassroom(String classroom);
+    public List<Student> findByClassroom(String classroom);
     Student findByName(String name);
 }
