@@ -16,6 +16,8 @@ import java.util.List;
 import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 /**
  *
@@ -53,7 +55,10 @@ public class StudentController {
     }
     
     @PostMapping("/createStudent")
-    public String createStudent(@Valid StudentForm studentForm){
+    public String createStudent(@ModelAttribute("StudentForm") @Valid StudentForm studentForm, BindingResult result){
+        if(result.hasErrors()){
+            return "AddStudent";
+        }
         if(studentService.checkName(studentForm.getName()) == null){
             Student student = studentForm.convertToStudent();
             studentService.save(student);

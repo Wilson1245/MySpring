@@ -18,11 +18,9 @@ import org.springframework.beans.BeanUtils;
 @Data
 public class StudentForm {
     
-    @NotBlank
-    @Length(max = 10)
+    @NotBlank(message = "Not Empty")
     private String name;
-    @NotBlank
-    @Length(max = 10)
+    @NotBlank(message = "Not Empty")
     private String classroom;
     
     
