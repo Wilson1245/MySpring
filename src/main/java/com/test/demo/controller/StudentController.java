@@ -61,7 +61,7 @@ public class StudentController {
         }
         if(studentService.checkName(studentForm.getName()) == null){
             Student student = studentForm.convertToStudent();
-            studentService.save(student);
+            studentService.insert(student);
         }
         return "redirect:/find";
     }

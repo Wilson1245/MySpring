@@ -33,7 +33,7 @@ public class StudentService {
         return student;
     }
     
-    public void save(Student student){
+    public void insert(Student student){
         studentRepository.save(student);
     }
     
