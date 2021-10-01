@@ -13,7 +13,7 @@ and open the template in the editor.
     <body>
         <div class="well">
             <p>
-                <a href="#" th:href="@{/addStudent}">新增學生</a>
+                <a href="#" th:href="@{/addStudent}">CreateStudent</a>
             </p>
             <table>
                 <thead>
@@ -28,12 +28,12 @@ and open the template in the editor.
                 </thead>
                 <tbody>
                     <tr th:each="s : ${student}">
-                        <td th:text="${s.id}">xx</td>
-                        <td th:text="${s.name}">xxx</td>
-                        <td th:text="${s.classroom}">xxx</td>
-                        <td th:text="${s.chineseScore}">0</td>
-                        <td th:text="${s.mathScore}">0</td>
-                        <td th:text="${s.englishScore}">0</td>
+                        <td th:text="${s.id}"></td>
+                        <td th:text="${s.name}"></td>
+                        <td th:text="${s.classroom}"></td>
+                        <td th:text="${s.chineseScore}"></td>
+                        <td th:text="${s.mathScore}"></td>
+                        <td th:text="${s.englishScore}"></td>
                     </tr>
                 </tbody>
             </table>

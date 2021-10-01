@@ -4,7 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html xmlns:th="http://www.thymaleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
@@ -14,16 +14,18 @@ and open the template in the editor.
         <div class="well">
             <form action="#" th:action="@{/createStudent}" method="POST" th:object="${StudentForm}">
                 <div>
-                    <label for="name">姓名:</label>
+                    <label for="name">Name</label>
                     <input type="text" name="name" id="name" th:field="*{name}">
                     <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
                 </div>
                 <div>
-                    <label for="classroom">班級:</label>
+                    <label for="classroom">Classroom</label>
                     <input type="text" name="classroom" id="classroom" th:field="*{classroom}">
                     <span th:if="${#fields.hasErrors('classroom')}" th:errors="*{classroom}"></span>
                 </div>
-                <button type="submit">確認</button>
+                <p>
+                    <button type="submit">Create</button>
+                </p>
             </form>
         </div>
     </body>

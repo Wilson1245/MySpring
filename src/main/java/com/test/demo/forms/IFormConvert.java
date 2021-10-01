@@ -7,8 +7,8 @@ package com.test.demo.forms;
 
 /**
  *
- * @author Administrator
+ * @author wuweicheng
  */
-public interface IFromConvert<S , T> {
+public interface IFormConvert<S, T> {
     T converFor (S s);
 }
