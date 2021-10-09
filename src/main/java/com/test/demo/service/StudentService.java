@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.test.demo.pojo.Student;
 import com.test.demo.repository.StudentRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -43,5 +44,9 @@ public class StudentService {
     
     public Student checkName(String name){
         return studentRepository.findByName(name);
+    }
+    
+    public Optional<Student> findById(int id){
+        return studentRepository.findById(id);
     }
 }

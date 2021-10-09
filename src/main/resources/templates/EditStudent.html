@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th = "http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div align="center">
+            <p>
+                <a href="#" th:href="@{/find}">Student List</a>
+            </p>
+            <form action="#" th:action="@{/editStudentSave}" method="POST" th:object="${Student}">
+                <div>
+                    <label for="id">ID</label><br/>
+                    <input id="id" name="id" type="text" th:value="*{id}" readonly="readonly"/>
+                </div>
+                <div>
+                    <label for="name">NAME</label><br/>
+                    <input id="name" name="name" type="text" th:value="*{name}" readonly="readonly"/>
+                </div>
+                <div>
+                    <label for="classroom">CLASSROOM</label><br/>
+                    <input id="classroom" name="classroom" type="text" th:value="*{classroom}" readonly="readonly"/>
+                </div>
+                <div>
+                    <label for="chineseScore">ChineseScore</label><br/>
+                    <input id="chineseScore" name="chineseScore" type="text" th:value="*{chineseScore}"/>
+                </div>
+                <div>
+                    <label for="mathScore">MathScore</label><br/>
+                    <input id="mathScore" name="mathScore" type="text" th:value="*{mathScore}"/>
+                </div>
+                <div>
+                    <label for="englishScore">EnglishScore</label><br/>
+                    <input id="englishScore" name="englishScore" type="text" th:value="*{englishScore}"/>
+                </div>
+                <p>
+                    <input type="submit" value="GO"/>
+                </p>
+            </form>
+        </div>
+    </body>
+</html>

@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 /**
  *
@@ -63,6 +64,23 @@ public class StudentController {
             Student student = studentForm.convertToStudent();
             studentService.save(student);
         }
+        return "redirect:/find";
+    }
+    
+    @GetMapping("/editStudent/{id}")
+    public String editStudent (@PathVariable int id,Model model){
+        Student student = studentService.findById(id).get();
+        model.addAttribute("Student", student);
+        return "EditStudent";
+    }
+    
+    @PostMapping("/editStudentSave")
+    public String editStudentSave(@ModelAttribute("Student")Student student){
+        System.out.println("Student : " + student);
+        if(student.getChineseScore() > 100 || student.getMathScore() > 100 || student.getEnglishScore() > 100 || student.getChineseScore() < 0 || student.getMathScore() < 0 || student.getEnglishScore() < 0){
+            return "EditStudent";
+        }
+        studentService.save(student);
         return "redirect:/find";
     }
 }

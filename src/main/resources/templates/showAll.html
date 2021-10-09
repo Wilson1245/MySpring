@@ -24,6 +24,7 @@ and open the template in the editor.
                         <th>chineseScore</th>
                         <th>mathScore</th>
                         <th>englishScore</th>
+                        <th>Function</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,6 +35,7 @@ and open the template in the editor.
                         <td th:text="${s.chineseScore}"></td>
                         <td th:text="${s.mathScore}"></td>
                         <td th:text="${s.englishScore}"></td>
+                        <td><a href="#" th:href="@{/editStudent/{id}(id=${s.id})}">Edit</a></td>
                     </tr>
                 </tbody>
             </table>
