@@ -44,7 +44,7 @@ public class StudentController {
     
     @GetMapping("/find")
     public String showStudent(Model model){
-        List<Student> students = studentRepository.findAll();
+        List<Student> students = studentService.findAllSort();
         model.addAttribute("student", students);
         return "showAll";
     }
@@ -81,6 +81,12 @@ public class StudentController {
             return "EditStudent";
         }
         studentService.save(student);
+        return "redirect:/find";
+    }
+    
+    @GetMapping("/del/{id}")
+    public String deleteGet(@PathVariable int id){
+        studentService.delete(id);
         return "redirect:/find";
     }
 }

@@ -11,6 +11,7 @@ import com.test.demo.repository.StudentRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 
 /**
  *
@@ -48,5 +49,14 @@ public class StudentService {
     
     public Optional<Student> findById(int id){
         return studentRepository.findById(id);
+    }
+    
+    public List<Student> findAllSort(){
+        List<Student> students = studentRepository.findAll(Sort.by("id"));
+        return students;
+    }
+    
+    public void delete (int id){
+        studentRepository.deleteById(id);
     }
 }

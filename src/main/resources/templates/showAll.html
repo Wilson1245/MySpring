@@ -35,7 +35,10 @@ and open the template in the editor.
                         <td th:text="${s.chineseScore}"></td>
                         <td th:text="${s.mathScore}"></td>
                         <td th:text="${s.englishScore}"></td>
-                        <td><a href="#" th:href="@{/editStudent/{id}(id=${s.id})}">Edit</a></td>
+                        <td>
+                            <a href="#" th:href="@{/editStudent/{id}(id=${s.id})}">Edit</a>
+                            <a href="#" th:href="@{/del/{id}(id=${s.id})}">Delete</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
